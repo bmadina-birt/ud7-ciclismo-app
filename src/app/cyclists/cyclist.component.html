@@ -1,0 +1,36 @@
+<div class="card border-primary mb-3">
+  <div class="card-header">Ciclistas</div>
+  <div class="card-body text-primary">
+    <h5 class="card-title">Listado de ciclistas</h5>
+    <table class="table table-bordered table-striped">
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>Nombre</th>
+          <th>Apellido</th>
+          <th>FechaNacimiento</th>
+          <th>Nacionalidad</th>
+          <th>Equipo</th>
+          <th>Acción</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let cyclist of cyclists">
+          <td>{{cyclist.id}}</td>
+          <td>{{cyclist.firstName}}</td>
+          <td>{{cyclist.lastName}}</td>
+          <td>{{cyclist.birthDate}}</td>
+          <td>{{cyclist.nationality}}</td>
+          <td>{{cyclist.teamName}}</td>
+          <td>
+            <button class="btn btn-rounded btn-primary" type ="button" [routerLink]= "['/cyclists/form', cyclist.id]">Editar</button>
+            <button class="btn btn-rounded btn-danger" type ="button" (click)="deleteCyclist(cyclist.id)">Eliminar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <button class="btn btn-rounded btn btn-success" type ="button" [routerLink]= "['/cyclists/form']">Nuevo ciclista</button>
+
+
+  </div>
+</div>

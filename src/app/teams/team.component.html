@@ -1,0 +1,40 @@
+<div class="card border-primary mb-3">
+  <div class="card-header">Equipos</div>
+  <div class="card-body text-primary">
+    <h5 class="card-title">Listado de equipos</h5>
+      <table class="table table-bordered table-striped">
+        <thead>
+        <tr>
+          <th>Id</th>
+          <th>Nombre</th>
+          <th>Ciudad</th>
+          <th>Nacionalidad</th>
+          <th>Manager</th>
+          <th>Ciclistas</th>
+          <th>Acción</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let team of teams">
+          <td>{{ team.id }}</td>
+          <td>{{ team.name }}</td>
+          <td>{{ team.city }}</td>
+          <td>{{ team.nationality }}</td>
+          <td>{{ team.manager }}</td>
+          <td>
+            <ul>
+              <li *ngFor="let cyclist of team.cyclists">
+                {{ cyclist.firstName }} {{ cyclist.lastName }}
+              </li>
+            </ul>
+          </td>
+          <td>
+            <button class="btn btn-rounded btn-primary" type ="button" [routerLink]= "['/teams/form', team.id]">Editar</button>
+            <button class="btn btn-rounded btn-danger" type ="button" (click)="deleteTeam(team.id)">Eliminar</button>
+          </td>
+        </tr>
+      </tbody>
+      </table>
+      <button class="btn btn-rounded btn btn-success" type ="button" [routerLink]= "['/teams/form']">Nuevo equipo</button>
+  </div>
+</div>
