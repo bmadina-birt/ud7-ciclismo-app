@@ -36,13 +36,13 @@ export class CyclistsFormComponent {
 
  public create(): void {
     this.cyclistService.createCyclist(this.cyclist).subscribe(
-      response => this.router.navigate(['/cyclists'])
+      () => this.router.navigate(['/cyclists'])
     )
   }
 
   public update(): void {
     this.cyclistService.updateCyclist(this.cyclist).subscribe(
-      response => this.router.navigate(['/cyclists'])
+      () => this.router.navigate(['/cyclists'])
     )
   }
 }

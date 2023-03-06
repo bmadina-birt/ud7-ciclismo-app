@@ -29,13 +29,13 @@ export class TeamsFormComponent {
 
   public create(): void {
     this.teamService.createTeam(this.team).subscribe(
-      response => this.router.navigate(['/teams'])
+      () => this.router.navigate(['/teams'])
     )
   }
 
   public update(): void {
     this.teamService.updateTeam(this.team).subscribe(
-      response => this.router.navigate(['/teams'])
+      () => this.router.navigate(['/teams'])
     )
   }
 }
